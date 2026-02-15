@@ -5,17 +5,6 @@
     const phoneInput = document.getElementById('phone');
     const resultDiv = document.getElementById('result');
     const validateBtn = document.getElementById('validate-btn');
-    const btnText = validateBtn.querySelector('.btn-text');
-    const btnSpinner = validateBtn.querySelector('.btn-spinner');
-
-    /**
-     * Show loading state on button
-     */
-    function setLoading(loading) {
-        validateBtn.disabled = loading;
-        btnText.hidden = loading;
-        btnSpinner.hidden = !loading;
-    }
 
     /**
      * Render validation result
@@ -61,7 +50,7 @@
             return;
         }
 
-        setLoading(true);
+        validateBtn.disabled = true;
 
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
@@ -97,7 +86,7 @@
                 : 'Could not connect to the validation server. Please try again.';
             renderResult({ valid: false, error: message });
         } finally {
-            setLoading(false);
+            validateBtn.disabled = false;
         }
     }
 
