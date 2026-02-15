@@ -1,0 +1,17 @@
+{
+    "name": "tavid/phone-validator",
+    "description": "Phone number validation application",
+    "type": "project",
+    "require": {
+        "php": ">=8.1",
+        "giggsey/libphonenumber-for-php": "^8.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/api/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
